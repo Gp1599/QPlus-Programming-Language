@@ -7,4 +7,4 @@ To remove precompiled object files, type:
     make clean
 
 To run the program, type:
-    ./g+ run <command-line-arguments>
+    ./g+ run
