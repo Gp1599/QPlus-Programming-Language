@@ -18,8 +18,9 @@ namespace GP {
         PRIMITIVE,
         ARRAY,
         TUPLE,
-        PROCEDURE,
+        FUNCTIONOBJECT,
         STRUCTURED,
+        REFERENCE
     };
     
     /**
@@ -27,42 +28,44 @@ namespace GP {
      * 
      */
     class ObjectSpace {
-
+        
         private:
-            /** 
-             * 
-            */
-            unsigned int* type;
-
+            
             /**
              * @brief 
              * 
              */
-            void* primitiveDataPtr;
-
+            void* primitiveDataPtr;     
+            
             /**
              * @brief 
              * 
              */
-            ObjectSpaceCompositeType compositeType;
-
+            ObjectSpace* localObjectPtr; //Used for composite types and reference types
+            
             /**
              * @brief 
              * 
              */
-            ObjectSpace* compositeDataPtr;
-
+            std::map<unsigned int*, ObjectSpace*>* attributeMap; //Used for structures types
+            
             /**
              * @brief 
              * 
              */
-            std::map<unsigned int*, ObjectSpace*>* attributeMap;
-
+            unsigned int type;
+            
             /**
              * @brief 
              * 
              */
-            bool isAllocated;
+            ObjectSpaceCompositeType compositeType; // Defines which 
+            
+            /**
+             * @brief 
+             * 
+             */
+            bool isAllocated; //Indicates whether the data behind the object space is allocated
         
         public:
 
