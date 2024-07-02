@@ -21,7 +21,7 @@ ObjectSpace::ObjectSpace(ObjectSpaceCompositeType type) {
  * 
  */
 ObjectSpace::~ObjectSpace(){
-
+    delete this->attributeMap; 
 }
 
 /**
@@ -40,7 +40,7 @@ void ObjectSpace::update(void* data){
  * @param obj 
  */
 void ObjectSpace::addAttribute(char* name, ObjectSpace* obj){
-
+    this->attributeMap->emplace(0, obj); //FIXME: replace 0 with the integer defined by the strie after the strie reads the specified attribute name.
 }
 /**
  * @brief 
@@ -48,5 +48,4 @@ void ObjectSpace::addAttribute(char* name, ObjectSpace* obj){
  */
 void ObjectSpace::free(){
     delete this->primitiveDataPtr;
-
 }

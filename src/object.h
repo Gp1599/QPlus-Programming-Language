@@ -1,5 +1,5 @@
-#ifndef GX_OBJECT_H
-#define GX_OBJECT_H
+#ifndef GP_OBJECT_H
+#define GP_OBJECT_H
 
 #include <iostream>
 #include <map>
@@ -28,7 +28,7 @@ namespace GP {
      * 
      */
     class ObjectSpace {
-        
+
         private:
             
             /**
