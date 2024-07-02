@@ -40,7 +40,7 @@ void ObjectSpace::update(void* data){
  * @param obj 
  */
 void ObjectSpace::addAttribute(char* name, ObjectSpace* obj){
-    this->attributeMap->emplace(0, obj); //FIXME: replace 0 with the integer defined by the strie after the strie reads the specified attribute name.
+    //this->attributeMap->emplace(0, obj); //FIXME: replace 0 with the integer defined by the strie after the strie reads the specified attribute name.
 }
 /**
  * @brief 
