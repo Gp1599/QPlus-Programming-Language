@@ -1,4 +1,4 @@
-GPAPPLICATION = g+
+GPAPPLICATION = q+
 GPOBJECTS = $(patsubst %.cpp, %.o, $(wildcard src/*.cpp))
 
 #This compiles the programming language interpreter

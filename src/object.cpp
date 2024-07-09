@@ -1,6 +1,6 @@
 #include "object.h"
 
-using namespace GP;
+using namespace QP;
 
 /**
  * @brief Construct a new Object Space:: Object Space object

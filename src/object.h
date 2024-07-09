@@ -8,7 +8,7 @@
  * @brief 
  * 
  */
-namespace GP {
+namespace QP {
 
     /**
      * @brief 
