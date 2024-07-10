@@ -8,7 +8,6 @@ using namespace QP;
  * @param type 
  */
 ObjectSpace::ObjectSpace(ObjectSpaceType type) {
-    this->type = 0;
     this->dataPtr = nullptr;
     this->dataArrayLength = 1;
     this->attributeMap = new std::map<unsigned int*, ObjectSpace*>();
@@ -65,9 +64,10 @@ void ObjectSpace::free(){
                 }
                 this->dataPtr = nullptr;
                 break;
-            case PROCEDURE:
+        /*  case PROCEDURE:
                 //FIXME: Implement Procedure Pointer
                 break;
+            */
     }
 }
     

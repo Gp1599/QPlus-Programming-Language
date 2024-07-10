@@ -1,5 +1,5 @@
-#ifndef GP_OBJECT_H
-#define GP_OBJECT_H
+#ifndef QP_OBJECT_H
+#define QP_OBJECT_H
 
 #include <iostream>
 #include <map>
@@ -19,7 +19,6 @@ namespace QP {
         ARRAY,
         TUPLE,
         PROCEDURE,
-        FUNCTION,
         STRUCTURED
     };
     
@@ -41,7 +40,7 @@ namespace QP {
              * @brief 
              * 
              */
-            std::map<unsigned int*, ObjectSpace*>* attributeMap; //Used for structures types
+            std::map<unsigned int*, ObjectSpace*>* attributeMap; 
             
             /**
              * @brief  Represents a length of an array that represents a array or tuple
