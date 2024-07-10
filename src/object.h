@@ -48,12 +48,6 @@ namespace QP {
              * 
              */
             unsigned int dataArrayLength;
-
-            /**
-             * @brief Represents a ID of a data type that the object space represents 
-             * 
-             */
-            unsigned int type;
             
             /**
              * @brief Defines which composite type that object space is.

@@ -5,17 +5,18 @@
 #include <map>
 #include "object.h"
 
-namespace GP {
+namespace QP {
     class Procedure {
         private:
-            std::map<unsigned int, ObjectSpace*>* parameters;
+            Procedure* outerScope;
+            ObjectSpace* structuredScope; 
+            ObjectSpace* localScope;
 
         public:
-            Procedure();
+            Procedure(ObjectSpace* structuredScope);
             ~Procedure();
 
             virtual void run() = 0;
-            virtual bool isRunnable() = 0;
     };
 }
 
