@@ -3,7 +3,7 @@
 using namespace QP;
 
 /**
- * @brief Construct a new Object Space:: Object Space object
+ * @brief 
  * 
  * @param type 
  */
@@ -43,8 +43,9 @@ void ObjectSpace::update(void* data){
 void ObjectSpace::addAttribute(char* name, ObjectSpace* obj){
     //this->attributeMap->emplace(0, obj); //FIXME: replace 0 with the integer defined by the strie after the strie reads the specified attribute name.
 }
+
 /**
- * @brief 
+ * @brief  Deallocates the data behind the object space (it's done via the following line of code (delete <object name>))
  * 
  */
 void ObjectSpace::free(){
@@ -63,6 +64,9 @@ void ObjectSpace::free(){
                     objSpaceData[i].free();
                 }
                 this->dataPtr = nullptr;
+                break;
+            case PROCEDURE:
+                //FIXME: Implement Procedure Pointer
                 break;
     }
 }

@@ -20,7 +20,7 @@ namespace QP {
         TUPLE,
         PROCEDURE,
         FUNCTION,
-        STRUCTURED,
+        STRUCTURED
     };
     
     /**
