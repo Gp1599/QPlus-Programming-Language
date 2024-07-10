@@ -14,13 +14,13 @@ namespace QP {
      * @brief 
      * 
      */
-    enum ObjectSpaceCompositeType {
+    enum ObjectSpaceType {
         PRIMITIVE,
         ARRAY,
         TUPLE,
-        FUNCTIONOBJECT,
+        PROCEDURE,
+        FUNCTION,
         STRUCTURED,
-        REFERENCE
     };
     
     /**
@@ -32,16 +32,10 @@ namespace QP {
         private:
             
             /**
-             * @brief 
+             * @brief  Represents a pointer to a primitive value such as an integer, decimal, boolean, and an array of object spaces.
              * 
              */
-            void* primitiveDataPtr;     
-            
-            /**
-             * @brief 
-             * 
-             */
-            ObjectSpace* localObjectPtr; //Used for composite types and reference types
+            void* dataPtr;  
             
             /**
              * @brief 
@@ -50,22 +44,34 @@ namespace QP {
             std::map<unsigned int*, ObjectSpace*>* attributeMap; //Used for structures types
             
             /**
-             * @brief 
+             * @brief  Represents a length of an array that represents a array or tuple
+             * 
+             */
+            unsigned int dataArrayLength;
+
+            /**
+             * @brief Represents a ID of a data type that the object space represents 
              * 
              */
             unsigned int type;
             
             /**
-             * @brief 
+             * @brief Defines which composite type that object space is.
              * 
              */
-            ObjectSpaceCompositeType compositeType; // Defines which 
+            ObjectSpaceType compositeType; 
+
+            /**
+             * @brief  Defines whether or not the object refers to a more primitive object.
+             * 
+             */
+            bool isReference;
             
             /**
-             * @brief 
+             * @brief Indicates whether the data behind the object space is allocated.
              * 
              */
-            bool isAllocated; //Indicates whether the data behind the object space is allocated
+            bool isAllocated;
         
         public:
 
@@ -74,7 +80,7 @@ namespace QP {
              * 
              * @param type 
              */
-            ObjectSpace(ObjectSpaceCompositeType type);
+            ObjectSpace(ObjectSpaceType type);
 
             /**
              * @brief Destroy the Object Space object
@@ -102,8 +108,6 @@ namespace QP {
              * 
              */
             void free();
-
-
     };
 }
 #endif

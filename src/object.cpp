@@ -7,12 +7,13 @@ using namespace QP;
  * 
  * @param type 
  */
-ObjectSpace::ObjectSpace(ObjectSpaceCompositeType type) {
+ObjectSpace::ObjectSpace(ObjectSpaceType type) {
     this->type = 0;
-    this->primitiveDataPtr = nullptr;
-    this->compositeType = type;
-    this->localObjectPtr = nullptr;
+    this->dataPtr = nullptr;
+    this->dataArrayLength = 1;
     this->attributeMap = new std::map<unsigned int*, ObjectSpace*>();
+    this->compositeType = type;
+    this->isReference = false;
     this->isAllocated = false;
 }
 
@@ -47,5 +48,23 @@ void ObjectSpace::addAttribute(char* name, ObjectSpace* obj){
  * 
  */
 void ObjectSpace::free(){
-    delete this->primitiveDataPtr;
+    if(this->isReference){
+        this->dataPtr = nullptr;
+    } else {
+        switch(this->compositeType){
+            case PRIMITIVE:
+                delete this->dataPtr;
+                this->dataPtr = nullptr;
+                break;
+            case ARRAY:
+            case TUPLE:
+                ObjectSpace* objSpaceData = (ObjectSpace*) this->dataPtr;
+                for(int i = 0; i < this->dataArrayLength; i++){
+                    objSpaceData[i].free();
+                }
+                this->dataPtr = nullptr;
+                break;
+    }
+}
+    
 }
