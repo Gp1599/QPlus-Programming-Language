@@ -28,7 +28,7 @@ namespace QP {
              * @brief 
              * 
              */
-            ObjectSpace* localScope;
+            std::map<unsigned int, ObjectSpace>* localScope;
 
         public:
 

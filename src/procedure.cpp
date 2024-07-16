@@ -8,7 +8,9 @@ using namespace QP;
  * @param structuredScope 
  */
 Procedure::Procedure(ObjectSpace* structuredScope){
-
+    this->outerScope = nullptr;
+    this->structuredScope = structuredScope;
+    this->localScope = new std::map<unsigned int, ObjectSpace>();
 }
 
 /**
