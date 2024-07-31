@@ -4,24 +4,30 @@
 #include <iostream>
 #include <map>
 
+#include "objecttype.h"
+
 /**
  * @brief 
  * 
  */
 namespace QP {
-
+    
     /**
      * @brief 
      * 
      */
-    enum ObjectSpaceType {
-        PRIMITIVE,
-        ARRAY,
-        TUPLE,
-        PROCEDURE,
-        STRUCTURED
+    union ObjectSpacePrimitiveValue {
+        char byteValue;
+        unsigned char unsignedByteValue;
+        bool booleanValue;
+        long integerValue;
+        unsigned long unsignedIntegerValue;
+        double decimalValue;
+        ObjectSpace* reference;
+        std::map<unsigned int, ObjectSpace*> attributeMap;
+        ObjectSpace* compositeReference;
     };
-    
+
     /**
      * @brief 
      * 
@@ -29,78 +35,175 @@ namespace QP {
     class ObjectSpace {
 
         private:
-            
-            /**
-             * @brief  Represents a pointer to a primitive value such as an integer, decimal, boolean, and an array of object spaces.
-             * 
-             */
-            void* dataPtr;  
-            
             /**
              * @brief 
              * 
              */
-            std::map<unsigned int*, ObjectSpace*>* attributeMap; 
-            
-            /**
-             * @brief  Represents a length of an array that represents a array or tuple
-             * 
-             */
-            unsigned int dataArrayLength;
-            
-            /**
-             * @brief Defines which composite type that object space is.
-             * 
-             */
-            ObjectSpaceType compositeType; 
+            ObjectSpaceType* type;
 
             /**
-             * @brief  Defines whether or not the object refers to a more primitive object.
+             * @brief 
              * 
              */
-            bool isReference;
-            
-            /**
-             * @brief Indicates whether the data behind the object space is allocated.
-             * 
-             */
-            bool isAllocated;
+            ObjectSpacePrimitiveValue primitiveValue;
         
         public:
 
             /**
-             * @brief Construct a new Object Space object
+             * @brief 
              * 
-             * @param type 
              */
-            ObjectSpace(ObjectSpaceType type);
+            ObjectSpace(ObjectSpaceType* type);
 
             /**
-             * @brief Destroy the Object Space object
+             * @brief
              * 
+             * @return 
              */
-            ~ObjectSpace();
+            ObjectSpaceType* getType();
 
             /**
              * @brief 
              * 
-             * @param s 
+             * @return 
              */
-            void update(void* data);
+            ObjectSpace* value();
 
+            /**
+             * @brief Get the Byte object
+             * 
+             * @return char 
+             */
+            char getByte();
+
+            /**
+             * @brief Get the Unsigned Byte object
+             * 
+             * @return unsigned char 
+             */
+            unsigned char getUnsignedByte();
+
+            /**
+             * @brief Get the Boolean object
+             * 
+             * @return true 
+             * @return false 
+             */
+            bool getBoolean();
+
+            /**
+             * @brief Get the Int object
+             * 
+             * @return long 
+             */
+            long getInt();
+
+            /**
+             * @brief Get the Unsigned Int object
+             * 
+             * @return unsigned long 
+             */
+            unsigned long getUnsignedInt(); 
+
+            /**
+             * @brief Get the Decimal object
+             * 
+             * @return double 
+             */
+            double getDecimal();
+
+            /**
+             * @brief Set the Byte object
+             * 
+             * @param value 
+             */
+            void setByte(char value);
+
+            /**
+             * @brief Set the Unsigned Byte object
+             * 
+             * @param value 
+             */
+            void setUnsignedByte(unsigned char value);
+
+            /**
+             * @brief Set the Boolean object
+             * 
+             * @param value 
+             */
+            void setBoolean(bool value);
+
+            /**
+             * @brief Set the Int object
+             * 
+             * @param value 
+             */
+            void setInt(long value);
+
+            /**
+             * @brief Set the Unsigned Int object
+             * 
+             * @param value 
+             */
+            void setUnsignedInt(unsigned long value);
+
+            /**
+             * @brief Set the Decimal object
+             * 
+             * @param value 
+             */
+            void setDecimal(double value);
+
+            /**
+             * @brief Set the Reference object
+             * 
+             * @param space 
+             */
+            void setReference(ObjectSpace* space);
+
+            /**
+             * @brief 
+             * 
+             * @param length 
+             */
+            void initArray(ObjectSpace* length);
+
+            /**
+             * @brief 
+             * 
+             * @param types 
+             * @param length 
+             */
+            void initTuple(ObjectSpaceType* types, unsigned int length);
+
+            /**
+             * @brief 
+             * 
+             */
+            void initAttributeMap();
+            
+            /**
+             * @brief Get the Attribute object
+             * 
+             * @param name 
+             */
+            void getAttribute(char* name);
+            
             /**
              * @brief 
              * 
              * @param name 
-             * @param object 
+             * @param value 
              */
-            void addAttribute(char* name, ObjectSpace* object);
+            void addAttribute(char* name, ObjectSpace* value);
 
             /**
              * @brief 
              * 
+             * @return true 
+             * @return false 
              */
-            void free();
+            bool isAllocated();
     };
 }
 #endif
