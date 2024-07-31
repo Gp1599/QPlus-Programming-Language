@@ -24,7 +24,7 @@ namespace QP {
         unsigned long unsignedIntegerValue;
         double decimalValue;
         ObjectSpace* reference;
-        std::map<unsigned int, ObjectSpace*> attributeMap;
+        std::map<unsigned int, ObjectSpace*>* attributeMap;
         ObjectSpace* compositeReference;
     };
 
