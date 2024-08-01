@@ -18,7 +18,7 @@ ObjectSpace::ObjectSpace(ObjectSpaceType* type) {
  * @return 
  */
 ObjectSpace* ObjectSpace::value(){
-    if(this->type->isReference()){
+    if(this->type->getID() == ObjectSpaceTypeID::REFERENCE){
         return this->primitiveValue.reference->value();
     } else {
         return this;
