@@ -40,7 +40,7 @@ ObjectSpaceType* ObjectSpace::getType(){
  * 
  * @return char 
  */
-char ObjectSpace::getByte(){
+QPByte ObjectSpace::getByte(){
     return this->primitiveValue.byteValue;
 }
 
@@ -49,7 +49,7 @@ char ObjectSpace::getByte(){
  * 
  * @return unsigned char 
  */
-unsigned char ObjectSpace::getUnsignedByte(){
+QPUnsignedByte ObjectSpace::getUnsignedByte(){
     return this->primitiveValue.unsignedByteValue;
 }
 
@@ -59,7 +59,7 @@ unsigned char ObjectSpace::getUnsignedByte(){
  * @return true 
  * @return false 
  */
-bool ObjectSpace::getBoolean(){
+QPBoolean ObjectSpace::getBoolean(){
     return this->primitiveValue.booleanValue;
 }
 
@@ -68,7 +68,7 @@ bool ObjectSpace::getBoolean(){
  * 
  * @return long 
  */
-long ObjectSpace::getInt(){
+QPInt ObjectSpace::getInt(){
     return this->primitiveValue.integerValue;
 }
 
@@ -77,7 +77,7 @@ long ObjectSpace::getInt(){
  * 
  * @return unsigned long 
  */
-unsigned long ObjectSpace::getUnsignedInt(){
+QPUnsignedInt ObjectSpace::getUnsignedInt(){
     return this->primitiveValue.unsignedIntegerValue;
 }
 
@@ -86,7 +86,7 @@ unsigned long ObjectSpace::getUnsignedInt(){
  * 
  * @return double 
  */
-double ObjectSpace::getDecimal(){
+QPDecimal ObjectSpace::getDecimal(){
     return this->primitiveValue.decimalValue;
 }
 
@@ -95,7 +95,7 @@ double ObjectSpace::getDecimal(){
  * 
  * @param value 
  */
-void ObjectSpace::setByte(char value){
+void ObjectSpace::setByte(QPByte value){
     this->primitiveValue.byteValue = value;
 }
 
@@ -104,7 +104,7 @@ void ObjectSpace::setByte(char value){
  * 
  * @param value 
  */
-void ObjectSpace::setUnsignedByte(unsigned char value){
+void ObjectSpace::setUnsignedByte(QPUnsignedByte value){
      this->primitiveValue.unsignedByteValue = value;
 }
 
@@ -113,7 +113,7 @@ void ObjectSpace::setUnsignedByte(unsigned char value){
  * 
  * @param value 
  */
-void ObjectSpace::setBoolean(bool value){
+void ObjectSpace::setBoolean(QPBoolean value){
     this->primitiveValue.booleanValue = value;
 }
 
@@ -122,7 +122,7 @@ void ObjectSpace::setBoolean(bool value){
  * 
  * @param value 
  */
-void ObjectSpace::setInt(long value){
+void ObjectSpace::setInt(QPInt value){
     this->primitiveValue.integerValue = value;
 }
 
@@ -131,7 +131,7 @@ void ObjectSpace::setInt(long value){
  * 
  * @param value 
  */
-void ObjectSpace::setUnsignedInt(unsigned long value){
+void ObjectSpace::setUnsignedInt(QPUnsignedInt value){
     this->primitiveValue.unsignedIntegerValue = value;
 }
 
@@ -140,7 +140,7 @@ void ObjectSpace::setUnsignedInt(unsigned long value){
  * 
  * @param value 
  */
-void ObjectSpace::setDecimal(double value){
+void ObjectSpace::setDecimal(QPDecimal value){
     this->primitiveValue.decimalValue = value;
 }
 
