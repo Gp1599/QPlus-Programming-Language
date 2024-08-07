@@ -67,7 +67,7 @@ namespace QP {
              * 
              * @return 
              */
-            ObjectSpace* value();
+            ObjectSpace* getNonreference();
 
             /**
              * @brief Get the Byte object
@@ -187,7 +187,7 @@ namespace QP {
              * 
              * @param name 
              */
-            void getAttribute(char* name);
+            ObjectSpace* getAttribute(char* name);
             
             /**
              * @brief 
@@ -204,6 +204,8 @@ namespace QP {
              * @return false 
              */
             bool isAllocated();
+
+            void free();
     };
 }
 #endif
