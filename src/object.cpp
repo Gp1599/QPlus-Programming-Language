@@ -147,6 +147,16 @@ void ObjectSpace::setDecimal(QPDecimal value){
 /**
  * @brief 
  * 
+ * @param reference 
+ */
+void ObjectSpace::setReference(ObjectSpace* reference){
+    this->primitiveValue.reference = reference;
+
+}
+
+/**
+ * @brief 
+ * 
  * @param length 
  */
 void ObjectSpace::initArray(ObjectSpace* length){
